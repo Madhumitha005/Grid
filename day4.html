@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grid System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .container{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+    }
+        .logo:hover {
+            width: 1050; 
+            height: auto;
+            margin-right: 30px; 
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eddfdf;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links li a {
+    color: rgb(23, 22, 22);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+.mySlides {
+    display:block;
+}
+img {
+ -ms-text-combine-horizontal: middle;
+}
+.fade {
+    animation: fade 1.5s ease-in-out infinite;
+}
+.img-slide img{
+    width:1000px;
+    height:500px;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.prev {
+    left: 10px;
+    border-radius: 3px 0 0 3px;
+}
+.next {
+    right: 10px;
+    border-radius: 0 3px 3px 0;
+}
+.social-icons {
+    margin: 10px 0;
+  }
+.social-icons a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+.social-icons a:hover {
+    color: #007BFF;
+  }
+  .social-icon{
+    margin:10px 0;
+  }
+  .soacial icon span{
+    text-decoration: none;
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+  .social-icon span:hover {
+    color: #007BFF;
+  }
+  </style>
+</head>
+<body>
+ <div class="top-bar container-fluid d-flex" style="background-color: black;">
+  <div class=" social-icon top-bar-left col-lg-10" style="color: #eddfdf;">
+    <span><i class="fas fa-map-marker-alt"></i> Chennai-78</span>
+    <span><i class="fas fa-phone"></i> +91 8056997651</span>
+    <span><i class="fas fa-envelope"></i> info@toptechdevelopers.com</span>
+  </div>
+  <div class="col=lg-2 social-icons top-bar-right d-flex">
+    <a href="https://www.facebook.com" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a><br><br>
+    <a href="https://www.youtube.com" target="_blank" title="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a><br><br>
+    <a href="https://www.whatsapp.com" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a><br><br>
+  </div>
+</div>
+    <nav class="navbar">
+        <ul class="nav-links" id="nav-links">
+          <div class="container d-flex" style="justify-content: space-between; gap: 35px;">
+            <img src="https://toptechdevelopers.in/img/logo-s.jpg" alt="madhu" class="logo" width="100px" height="80px">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="product2.html">Services</a></li>
+            <li><a href="contact.html">All Courses</a></li>
+            <li><a href="achievements.html">All Internships</a></li>
+            <li><a href="login.html">Project</a></li>
+            <li><a href="stocklist.html">Blogs</a></li>
+            <li><a href="stocklist.html">Enquiry</a></li>
+            <li><a href="stocklist.html">Register</a></li>
+            <li><a href="stocklist.html">8056997651</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </div>
+    </nav>
+      <center>
+         <div class=" col-lg-12 slideshow-container">
+            <div id="myslide-1" class="img-slide">
+                <img src="https://toptechdevelopers.in/img/carousel-3.jpg" alt="Laptop" style="width: 1000px;">
+            </div>
+            <div id="myslide-2" class="img-slide" style="display: none;">
+                <img src="https://toptechdevelopers.in/img/carousel-1.jpg" alt="Mobile" style="width:100%">
+            </div>
+            <div id="myslide-3" class="img-slide"style="display: none;">
+                <img src="https://toptechdevelopers.in/img/carousel-1.jpg" alt="Logo" style="width:100%">
+            </div>
+            </div>
+        
+      </center>
+</body>
+</html>
