@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top Tech Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  + 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+
+    .navbar {
+      background-color: #f9f5f5;
+      padding: 10px 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: rgb(23, 22, 22);
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background-color: black;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 992px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
+    .img-slide {
+      position: relative;
+    }
+
+    .img-slide h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 55px;
+      font-weight: bold;
+      color: rgb(233, 230, 230);
+      text-align: center;
+    }
+
+    .img-slide img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  .features div {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  .features i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+    .social-icons a {
+      text-decoration: none;
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .social-icons a:hover {
+      color: #007BFF;
+    }
+
+    .slider {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .slick-slide {
+      margin: 0 5px;
+    }
+
+    .slick-list {
+      margin: 0 -5px;
+    }
+
+    .slider img {
+      height: 324px;
+      width: 100%;
+    }
+
+    button.slick-prev,
+    button.slick-next {
+      position: absolute;
+      top: 41%;
+      width: 47px;
+      height: 75px;
+      background-image: url("http://maggiesadler.com/wp-content/uploads/2015/10/left-right-arrow.png");
+      background-size: 95px;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: none;
+      outline: none;
+      z-index: 2;
+    }
+
+    button.slick-prev {
+      left: 15px;
+      background-position-x: right;
+    }
+
+    button.slick-next {
+      right: 54px;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      content: "";
+    }
+
+    .slick-dots li button:before {
+      color: black;
+      font-size: 12px;
+      opacity: 0.25;
+    }
+
+    .slick-dots li.slick-active button:before {
+      opacity: 0.75;
+    }
+
+    /* Floating Scroll Box */
+    .scroll-box {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .scroll-box.show {
+      display: block;
+    }
+    .slider img {
+  width: 100%;
+  height: auto;
+}
+.slick-slide {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}
+.circle {
+  background-image: url('https://i.pinimg.com/736x/09/6b/9f/096b9f21d164aa34a980c85b8a5994b4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 20px auto; /* center horizontally */
+}
+    .wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto; /* centers horizontally */
+  z-index: 100;
+}
+    .rotating-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px dashed rgb(75, 5, 19);
+  animation: spin 7s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+   .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.m1, .m2, .m3 {
+  position: absolute;
+}
+
+    .m1 {
+      top: 200px;
+      left: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: rgb(192, 36, 36);
+    }
+    .m2 {
+      top:60px;
+      right: 250px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 25px solid rgba(135, 7, 7, 0.516);
+    }
+    .m3 {
+      bottom: 210px;
+      left: 260px;
+      width: 30px;
+      height: 30px;
+      background-color: rgb(155, 26, 26);
+    }
+    .flower-img {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes counterSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Audio -->
+  <audio id="welcomeAudio" autoplay muted loop>
+    <source src="audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Top Bar -->
+  <div class="top-bar container-fluid py-2 px-3" style="background-color: black; color: #eddfdf;">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-10">
+        <span><i class="fas fa-map-marker-alt" style="color: #0a0ada;"></i> Chennai-78</span>&nbsp;&nbsp;
+        <span><i class="fas fa-phone" style="color: #0909be;"></i> +91 8056997651</span>&nbsp;&nbsp;
+        <span><i class="fas fa-envelope" style="color: #0909be;"></i> info@toptechdevelopers.com</span>
+      </div>
+      <div class="col-lg-2 d-flex justify-content-lg-end social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook" style="color: #0909be;"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube" style="color: #0909be;"></i></a>
+        <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp" style="color: #0909be;"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://toptechdevelopers.in/img/logo-s.jpg" alt="Logo" class="logo" width="150" height="100">
+      </a>
+      <div class="hamburger d-lg-none" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-links ms-auto d-lg-flex" id="nav-links">
+        <a href="day4.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="day4.html">Services</a>
+        <a href="contact.html">All Courses</a>
+        <a href="intership.html">All Internships</a>
+        <a href="gallery.html">Project</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="enquiry.html">Enquiry</a>
+        <a href="register.html">Register</a>
+        <a href="#"><i class="fas fa-phone"></i> +91 8056997651</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="img-slide position-relative">
+    <img src="https://toptechdevelopers.in/img/service-1.jpg" alt="Slide 1">
+    <h1>Internship Training, IT Courses<br>& Project Services In Chennai</h1>
+  </div>
+
+  <!-- About Section -->
+ <div class="container-fluid">
+  <div class="row align-items-center" style="background-color: #002802;">
+    
+    <!-- Left Column: Image -->
+    <div class="col-lg-6 text-center py-5">
+      <img src="https://toptechdevelopers.in/img/about-girl.png" 
+           alt="About" 
+           class="img-fluid"
+           style="background-color: #f5f5f5; width: 500px; height: 500px; border-radius: 80px;">
+    </div>
+    
+    <!-- Right Column: Text Content -->
+    <div class="col-lg-6 py-5">
+      <h1 class="text-white">About Us - Top Tech Developers</h1>
+      <p class="text-white" style="border-left: 4px solid #0b05d0; padding-left: 10px;">
+        Top Tech Developers is a trusted platform offering career-focused internship training in Chennai.
+        We provide real-time internship programs with hands-on learning, live project exposure, and expert
+        mentorship from professional developers. Our focus is to help students, freshers, and job seekers
+        gain practical IT skills through structured internships, final year project support, and
+        placement-based training.
+      </p>
+
+      <!-- Features List -->
+      <div class="features text-white">
+        <div><i class="fas fa-check-circle" style="color: #0a0ada;"></i> ISO Certified Company</div>
+        <div><i class="fas fa-check-circle" style="color: #0a0ada;"></i> Live Project Experience</div>
+        <div><i class="fas fa-check-circle" style="color: #0a0ada;"></i> SEO & Analytics</div>
+        <div><i class="fas fa-check-circle" style="color: #0a0ada;"></i> IT Services</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Projects -->
+  <div class="container-fluid py-5 text-white text-center" style="background-color: #05131E;">
+    <h5>Our Best Projects</h5>
+    <h1>Explore Our Latest Projects</h1>
+  </div>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <div><img src="https://toptechdevelopers.in/img/projects-1.jpg" alt="Slide 1"></div>
+    <div><img src="https://toptechdevelopers.in/img/projects-1.jpg" alt="Slide 2"></div>
+    <div><img src="https://toptechdevelopers.in/img/projects-1.jpg" alt="Slide 3"></div>
+    <div><img src="https://toptechdevelopers.in/img/projects-1.jpg" alt="Slide 3"></div>
+    
+  </div>
+
+  <!-- Blog Section -->
+  <div class="container-fluid py-5 text-white text-center" style="background-color: #101D26;">
+    <h2>Our Blogs</h2>
+  </div>
+<div class="wrapper">
+  <div class="rotating-ring"></div>
+  <div class="content">
+    <img class="flower-img" src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg" alt="flower">
+    <div class="m1"></div>
+    <div class="m2"></div>
+    <div class="m3"></div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="text-center text-white mt-5" style="background-color: black;">
+    <div class="container py-4">
+      <div class="row text-start">
+        <div class="col-md-3">
+          <p class="text-uppercase text-primary">Top Tech</p>
+          <p>We provide more than projects and real-time job-based training.</p>
+        </div>
+        <div class="col-md-3">
+          <p class="text-uppercase text-primary">Short Links</p>
+          <ul class="list-unstyled">
+            <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+            <li><a href="day4.html" class="text-white text-decoration-none">Services</a></li>
+            <li><a href="gallery.html" class="text-white text-decoration-none">Courses</a></li>
+            <li><a href="gallery.html" class="text-white text-decoration-none">Project</a></li>
+            <li><a href="blogs.html" class="text-white text-decoration-none">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <p class="text-uppercase text-primary">Help Links</p>
+          <ul class="list-unstyled">
+            <li><a href="Terms.html" class="text-white text-decoration-none">Terms</a></li>
+            <li><a href="privacy.html" class="text-white text-decoration-none">Privacy</a></li>
+            <li><a href="register.html" class="text-white text-decoration-none">Helps</a></li>
+            <li><a href="enquiry.html" class="text-white text-decoration-none">FAQs</a></li>
+            <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <p class="text-uppercase text-primary">Contact Us</p>
+          <p><i class="fas fa-map-marker-alt"></i> K.K Nagar, Chennai-78</p><hr>
+          <p><i class="fas fa-phone"></i> +91 8056997651</p><hr>
+          <p><i class="fas fa-envelope"></i> info@toptechdevelopers.com</p><hr>
+        </div>
+      </div>
+      <hr class="bg-white">
+      <p class="mb-0 text-primary">&copy; 2025 TopTech Developers. Designed by Madhumitha S</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    // Audio play on first click
+    window.addEventListener('click', function () {
+      const audio = document.getElementById('welcomeAudio');
+      audio.muted = false;
+      audio.play();
+    }, { once: true });
+
+    // Hamburger menu toggle
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+
+    
+    // Scroll box show on scroll
+    window.addEventListener('scroll', function () {
+      const scrollBox = document.getElementById('scrollBox');
+      if (window.scrollY > 100) {
+        scrollBox.classList.add('show');
+      } else {
+        scrollBox.classList.remove('show');
+      }
+    });
+  </script>
+  <script>
+  $(document).ready(function () {
+    $('.slider').slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  });
+</script>
+<script>
+      
+const createOdometer = (el, value) => {
+  const odometer = new Odometer({
+    el: el,
+    value: 0,
+  });
+
+  let hasRun = false;
+
+  const options = {
+    threshold: [0, 0.9],
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!hasRun) {
+          odometer.update(value);
+          hasRun = true;
+        }
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  observer.observe(el);
+};
+
+const subscribersOdometer = document.querySelector(".subscribers-odometer");
+createOdometer(subscribersOdometer, 29800);
+
+const videosOdometer = document.querySelector(".videos-odometer");
+createOdometer(videosOdometer, 790);
+
+const projectsOdometer = document.querySelector(".projects-odometer");
+createOdometer(projectsOdometer, 89);
+
+    </script>
+</body>
+</html>
