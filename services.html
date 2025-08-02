@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+      margin-right: 30px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f9f5f5;
+      padding: 0 20px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li a {
+      color: #171616;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background-color: black;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    .img-slide h1 {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      font-size: 45px;
+      font-weight: bold;
+      color: #e9e6e6;
+      transform: translate(-50%, -50%);
+    }
+    .img-slide {
+      display: none;
+    }
+    .img-slide img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .social-icons, .social-icon {
+      gap: 1.5rem;
+    }
+    .social-icons a, .social-icon span {
+      text-decoration: none;
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+    .social-icons a:hover, .social-icon span:hover {
+      color: #007BFF;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+    }
+    .prev { left: 10px; border-radius: 3px 0 0 3px; }
+    .next { right: 10px; border-radius: 0 3px 3px 0; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .features div {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+    }
+    .features i {
+      color: #10467f;
+      margin-right: 10px;
+    }
+    .features p {
+      margin: 0;
+      color: black;
+      font-weight: 500;
+    }
+
+    .phone-btn {
+      border: 1px solid #0909be;
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: #0a5fdf;
+    }
+    .nav-link {
+      font-weight: 400;
+      margin-right: 1rem;
+    }
+
+    .stats-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .stat-box {
+      background-color: #10467f;
+      color: white;
+      width: 200px;
+      height: 100px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+    .stat-box.black {
+      background-color: #000;
+    }
+    .stat-box h2 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    .stat-box p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .customer-row img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Audio -->
+<audio id="welcomeAudio" autoplay muted loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Top Bar -->
+<div class="top-bar container-fluid d-flex justify-content-between align-items-center" style="background-color: black; color: #eddfdf;">
+  <div class="social-icon col-lg-10">
+    <span><i class="fas fa-map-marker-alt" style="color: #0909be;"></i> Chennai-78</span>
+    <span><i class="fas fa-phone" style="color: #0909be;"></i> +91 8056997651</span>
+    <span><i class="fas fa-envelope" style="color: #0909be;"></i> info@toptechdevelopers.com</span>
+  </div>
+  <div class="col-lg-2 social-icons d-flex">
+    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container d-flex">
+    <img src="https://toptechdevelopers.in/img/logo-s.jpg" alt="Logo" class="logo" width="150" height="100">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="day4.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="product2.html">Services</a></li>
+      <li><a href="contact.html">All Courses</a></li>
+      <li><a href="achievements.html">All Internships</a></li>
+      <li><a href="login.html">Project</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="enquiry.html">Enquiry</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a class="nav-links phone-btn" href="tel:+918056997651"><i class="fas fa-phone"></i> +91 8056997651</a></li>
+    </ul>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- Slideshow -->
+<div class="slideshow-container">
+  <button class="prev" onclick="plusSlides(-1)">❮</button>
+  <button class="next" onclick="plusSlides(1)">❯</button>
+
+  <div class="img-slide">
+    <img src="https://toptechdevelopers.in/img/carousel-2.jpg" alt="Slide 3">
+    <h1>Website And Digital Marketing In Chennai</h1>
+  </div>
+  <div class="img-slide">
+    <img src="https://toptechdevelopers.in/img/carousel-1.jpg" alt="Slide 2">
+  </div>
+  <div class="img-slide">
+   <img src="https://toptechdevelopers.in/img/carousel-3.jpg" alt="Slide 1">
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <img src="https://toptechdevelopers.in/img/home3.jpg" alt="About" class="img-fluid rounded-4" style="width: 600px;height:600px;">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="text-dark">About Top Tech Developers And It's Innovative Projects and Internship</h1>
+      <p>At Top Tech Developers, we provide the best internship programs and IT training in Chennai, tailored for graduates, career changers, and aspiring professionals. Free internship for selected candidates focuses on building strong foundations in software development, full-stack technologies, and digital skills through practical, real-world project training.</p>
+      <div class="features">
+        <div><i class="fas fa-check-circle"></i><p>ISO Certified Company</p></div>
+        <div><i class="fas fa-check-circle"></i><p>Live Project Experience</p></div>
+        <div><i class="fas fa-check-circle"></i><p>SEO & Analytics</p></div>
+        <div><i class="fas fa-check-circle"></i><p>IT Services</p></div>
+      </div>
+      <div class="customer-row" style="position: relative; height: 60px; margin-top: 30px;">
+  <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User 1"
+       style="position: absolute; left: 0; z-index: 3;">
+  <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User 2"
+       style="position: absolute; left: 30px; z-index: 2;">
+  <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User 3"
+       style="position: absolute; left: 60px; z-index: 1;">
+</div>
+      <div class="stats-boxes">
+  <div class="stat-box"><h2>5k</h2><p>Project Complete</p></div>
+  <div class="stat-box black"><h2>3+</h2><p>Years Of Experience</p></div>
+  <div class="stat-box"><h2>20+</h2><p>Team Members</p></div>
+</div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="text-center text-white mt-5" style="background-color: black;">
+  <div class="container py-4">
+    <div class="row text-start">
+      <div class="col-md-3"><p class="text-uppercase text-primary">Top Tech</p><p>We Are from Top Tech Developers.. We provide more then projects and real time job based Training . Communication classes Are available now.</p></div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Short Links</p>
+        <ul class="list-unstyled" >
+          <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+          <li><a href="day4.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Courses</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Project</a></li>
+          <li><a href="blogs.html" class="text-white text-decoration-none">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Help Links</p>
+        <ul class="list-unstyled">
+          <li><a href="Terms.html" class="text-white text-decoration-none">Terms</a></li>
+          <li><a href="privacy.html" class="text-white text-decoration-none">Privacy</a></li>
+          <li><a href="register.html" class="text-white text-decoration-none">Helps</a></li>
+          <li><a href="enquiry.html" class="text-white text-decoration-none">FAQs</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Contact Us</p>
+        <p><i class="fas fa-map-marker-alt"></i> K.K Nagar, Chennai-78</p><hr>
+        <p><i class="fas fa-phone"></i> +91 8056997651</p><hr>
+        <p><i class="fas fa-envelope"></i> info@toptechdevelopers.com</p><hr>
+      </div>
+    </div>
+    <hr class="bg-white">
+    <p class="mb-0 text-primary">&copy; 2025 TopTech Developers. Designed by Madhumitha S</p>
+  </div>
+</footer>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    const slides = document.getElementsByClassName("img-slide");
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  window.addEventListener('click', function () {
+    const audio = document.getElementById('welcomeAudio');
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('nav-links').classList.toggle('show');
+  });
+</script>
+</body>
+</html>
