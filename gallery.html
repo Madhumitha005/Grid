@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      text-align:center;
+      background:#f0f0f0;
+      padding: 0;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+      margin-right: 30px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f9f5f5;
+      padding: 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: rgb(23, 22, 22);
+      text-decoration: none;
+      font-size: 1rem;
+      justify-content: flex-start;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background-color: black;
+      margin: 4px 0;
+      transition: 0.4s;
+     justify-content: flex-start; 
+    }
+    h1{
+      color:#070756;
+      margin:1rem 0;
+    }
+    h2{
+      color:#070756;
+      margin:1.5rem 0 .8rem;
+    }
+     .social-icons {
+      margin: 10px 0;
+      gap: 1.5rem;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: #007BFF;
+    }
+
+    .social-icon span {
+      text-decoration: none;
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      display: inline-block;
+    }
+
+    .social-icon span:hover {
+      color: #007BFF;
+    }
+
+    .slideshow{
+      max-width:800px;
+      margin:auto;
+      position:relative;
+    }
+    .slidePy,.slideJs,.slideCs,.slidewd{
+      display:none;
+    }
+    .slidePy img,.slideJs img,.slideCs img,.slidewd img{
+      width:100%;
+      height:100%;
+    object-fit: cover;}
+    .nav-btn{
+      cursor:pointer;padding:.6rem 1.2rem;margin:.4rem;
+      background:#070756;color:#fff;border:none;border-radius:4px;
+    }
+    hr{
+      height:2px; 
+      background-color:rgb(14, 14, 240); 
+      border:none;
+    }
+
+    footer{
+      background-color: black;
+      font-size: larger;
+    }
+    footer p{
+      color: #2d0eca ;
+    }
+  </style>
+</head>
+<body>
+  <audio id="welcomeAudio" autoplay muted loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+  <div class="top-bar container-fluid px-3 py-2" style="background-color: black; color: #eddfdf;">
+  <div class="row align-items-center">
+    <div class="col-md-10 col-12 d-flex flex-wrap gap-3 align-items-center">
+      <span><i class="fas fa-map-marker-alt"></i> Chennai-78</span>
+      <span><i class="fas fa-phone"></i> +91 8056997651</span>
+      <span><i class="fas fa-envelope"></i> info@toptechdevelopers.com</span>
+    </div>
+    <div class="col-md-2 col-12 d-flex justify-content-md-end justify-content-center mt-2 mt-md-0">
+      <div class="social-icons d-flex gap-3">
+        <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.whatsapp.com" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <nav class="navbar">
+    <div class="container d-flex">
+      <img src="https://toptechdevelopers.in/img/logo-s.jpg" alt="madhu" class="logo" width="150px" height="100px">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="day4.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="day4.html">Services</a></li>
+        <li><a href="contact.html">All Courses</a></li>
+        <li><a href="intership.html">All Internships</a></li>
+        <li><a href="gallery.html">Project</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="stocklist.html"><i class="fas fa-phone"></i> +91 8056997651</a></li>
+      </ul>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+<h2>Python</h2>
+<div class="slideshow">
+  <div class="slidePy"><img src="https://k21academy.com/wp-content/uploads/2021/10/python-features.jpg" alt="Python "></div>
+  <div class="slidePy"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTst_3Bkbo6x-c0N55H36j1bDCIPZ-b2-cVEw&s" alt="Python "></div>
+
+  <button class="nav-btn" onclick="changeSlidePy(-1)">Prev</button>
+  <button class="nav-btn" onclick="changeSlidePy(1)">Next</button>
+</div>
+
+<h2>JavaScript</h2>
+<div class="slideshow">
+  <div class="slideJs"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXw0ibKF5hUXjyRn1YttR5fzrCtkrefYkCQ&s" alt="JS "></div>
+  <div class="slideJs"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtuheLC7U23JVJkww7f8Eg-igf9uqp3iyZgQ&s" alt="JS "></div>
+  <div class="slideJs"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ12uV9OW_Q4I2eJ44RU91yJ4i-ugh9sOsL1Q&s" alt="JS "></div>
+
+  <button class="nav-btn" onclick="changeSlideJs(-1)">Prev</button>
+  <button class="nav-btn" onclick="changeSlideJs(1)">Next</button>
+</div>
+<h2>CSS</h2>
+<div class="slideshow">
+  <div class="slideCs"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbB0ytg9aZhMiQsiKFDdu57KvUw6XtJ6ixMQ&s" alt="cs"></div>
+  <div class="slideCs"><img src="https://www.coding-dude.com/wp/wp-content/uploads/2016/06/css-animation.png" alt="cs"></div>
+  <div class="slideCs"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQBRgBLcB8C6wrt0wvHapHuMIQRqcGSi3WJg&s" alt="cs"></div>
+    
+  <button class="nav-btn" onclick="changeSlideCs(-1)">Prev</button>
+  <button class="nav-btn" onclick="changeSlideCs(1)">Next</button>
+</div>
+<h2>Web Development</h2>
+<div class="slideshow">
+  <div class="slidewd">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfpfRQFjqIKC9dUQpmi3-QVgvHKwtLCEM8yw&s" alt="WD">
+    </div>
+    <div class="slidewd"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrXrLu3A_yAz8wqef6eAO4j8-3LcsSkV3QWQ&s" alt="WD">
+      </div>
+    <div class="slidewd">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiKPNdVCEhQGTncBhHO8Yxm_cjLIgyJtDohA&s" alt="WD">
+    </div>
+    
+<button class="nav-btn" onclick="changeSlidewd(-1)">Prev</button>
+<button class="nav-btn" onclick="changeSlidewd(1)">Next</button>
+</div>
+<footer class="text-center text-white mt-5" style="background-color: black;">
+  <div class="container py-4">
+    <div class="row text-start">
+      <div class="col-md-3"><p class="text-uppercase text-primary">Top Tech</p><p style="color: #f0f0f0;">We Are from Top Tech Developers.. We provide more then projects and real time job based Training . Communication classes Are available now.</p></div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Short Links</p>
+        <ul class="list-unstyled" >
+          <li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+          <li><a href="day4.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Courses</a></li>
+          <li><a href="gallery.html" class="text-white text-decoration-none">Project</a></li>
+          <li><a href="blogs.html" class="text-white text-decoration-none">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Help Links</p>
+        <ul class="list-unstyled">
+          <li><a href="Terms.html" class="text-white text-decoration-none">Terms</a></li>
+          <li><a href="privacy.html" class="text-white text-decoration-none">Privacy</a></li>
+          <li><a href="register.html" class="text-white text-decoration-none">Helps</a></li>
+          <li><a href="enquiry.html" class="text-white text-decoration-none">FAQs</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase text-primary">Contact Us</p>
+        <p><i class="fas fa-map-marker-alt"></i> K.K Nagar, Chennai-78</p><hr>
+        <p><i class="fas fa-phone"></i> +91 8056997651</p><hr>
+        <p><i class="fas fa-envelope"></i> info@toptechdevelopers.com</p><hr>
+      </div>
+    </div>
+    <hr class="bg-white">
+    <p class="mb-0 text-primary">&copy; 2025 TopTech Developers. Designed by Madhumitha S</p>
+  </div>
+</footer>
+
+<script>
+  let currentPy = 0;
+  const slidesPy = document.querySelectorAll('.slidePy');
+
+  function showSlidePy(idx){
+    slidesPy.forEach(el => el.style.display = 'none');
+    slidesPy[idx].style.display = 'block';
+  }
+  function changeSlidePy(n){
+    currentPy = (currentPy + n + slidesPy.length) % slidesPy.length;
+    showSlidePy(currentPy);
+  }
+  showSlidePy(currentPy);   
+</script>
+
+<script>
+  let currentJs = 0;
+  const slidesJs = document.querySelectorAll('.slideJs');
+
+  function showSlideJs(idx){
+    slidesJs.forEach(el => el.style.display = 'none');
+    slidesJs[idx].style.display = 'block';
+  }
+  function changeSlideJs(n){
+    currentJs = (currentJs + n + slidesJs.length) % slidesJs.length;
+    showSlideJs(currentJs);
+  }
+  showSlideJs(currentJs);  
+</script>
+<script>
+  let currentwd = 0;
+  const slideswd = document.querySelectorAll('.slidewd');
+
+  function showSlidewd(idx){
+    slideswd.forEach(el => el.style.display = 'none');
+    slideswd[idx].style.display = 'block';
+  }
+  function changeSlidewd(n){
+    currentwd = (currentwd + n + slideswd.length) % slideswd.length;
+    showSlidewd(currentwd);
+  }
+  showSlidewd(currentwd);  
+</script>
+<script>
+  let currentCs = 0;
+  const slidesCs = document.querySelectorAll('.slideCs');
+
+  function showSlideCs(idx){
+    slidesCs.forEach(el => el.style.display = 'none');
+    slidesCs[idx].style.display = 'block';
+  }
+  function changeSlideCs(n){
+    currentCs = (currentCs + n + slidesCs.length) % slidesCs.length;
+    showSlideCs(currentCs);
+  }
+  showSlideCs(currentCs);  
+</script>
+<script>
+  window.addEventListener('click', function () {
+    const audio = document.getElementById('welcomeAudio');
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('nav-links').classList.toggle('show');
+  });
+</script>
+</body>
+</html>
