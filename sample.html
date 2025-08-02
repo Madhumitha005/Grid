@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Counter Animation</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Odometer CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: url('https://cdn.pixabay.com/animation/2023/01/30/01/01/01-01-38-895_512.gif') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .stats-container {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #000;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .stat {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      text-align: center;
+      background: #000;
+    }
+
+    .stat img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    .odometer-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+    }
+
+    .counter-value {
+      font-size: 40px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .odometer,
+    .suffix {
+      display: inline;
+    }
+
+    .suffix {
+      font-size: 40px;
+    }
+
+    .type {
+      font-size: 20px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 700px) {
+      .stat img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stats-container">
+    <!-- Subscribers -->
+    <div class="stat">
+      <img src="https://media.istockphoto.com/id/491606503/photo/overhead-view-of-light-brown-wooden-table.jpg?s=612x612&w=0&k=20&c=xYvhXlzscGiwIK5q9g8UcgTtkq3i7ErMwQo5EbqGuk8=" alt="Subscribers">
+      <div class="odometer-container">
+        <div class="counter-value">
+          <div class="odometer subscribers-odometer">0</div><div class="suffix">k</div>
+        </div>
+        <div class="type">DashBoard</div>
+      </div>
+    </div>
+
+    <!-- Videos -->
+    <div class="stat">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0iS7jiyott0p9CVv12-8sFOaGmYPCQWz1yA&s" alt="Videos">
+      <div class="odometer-container">
+        <div class="counter-value">
+          <div class="odometer videos-odometer">0</div><div class="suffix">+</div>
+        </div>
+        <div class="type">Likes</div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="stat">
+      <img src="https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif" alt="Projects">
+      <div class="odometer-container">
+        <div class="counter-value">
+          <div class="odometer projects-odometer">0</div><div class="suffix">+</div>
+        </div>
+        <div class="type">Gif</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Odometer JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
+
+  <script>
+    function animateOdometer(selector, value) {
+      const el = document.querySelector(selector);
+      const odometer = new Odometer({ el: el, value: 0 });
+
+      let triggered = false;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !triggered) {
+            odometer.update(value);
+            triggered = true;
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(el);
+    }
+
+    animateOdometer(".subscribers-odometer", 5);
+    animateOdometer(".videos-odometer", 3);
+    animateOdometer(".projects-odometer", 20);
+  </script>
+</body>
+</html>
